@@ -17,8 +17,8 @@
     <section class="container">
       <h1>To Do List</h1>
       <div class="input-area">
-        <input type="text" class="task-input" placeholder="오늘 할 일은?" />
-        <button class="btn-add">+</button>
+        <input type="text" id="task-input" placeholder="오늘 할 일은?" />
+        <button id="btn-add">+</button>
       </div>
       <section class="task-list-container">
         <div class="tab-type">
@@ -27,15 +27,7 @@
           <div id="ongoing">진행중</div>
           <div id="done">끝남</div>
         </div>
-        <div id="task-board">
-          <div class="task">
-            <span>밥 먹기</span>
-            <div class="btns">
-              <button id="check-btn">check</button>
-              <button id="delete-btn">delete</button>
-            </div>
-          </div>
-        </div>
+        <div id="task-board"></div>
       </section>
     </section>
     <script
@@ -43,5 +35,6 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="/main.js"></script>
   </body>
 </html>
