@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    background-image: url(/asset/background.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+    min-width: 800px;
+    min-height: 100vh;
+    height: 100%;
+    border-top: 10px solid rgb(195, 179, 231);
+    border-bottom: 10px solid rgb(195, 179, 231);
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.task-list-container{
+    border: 1px solid lightgray;
+    margin-top: 1em;
+    position: relative;
+}
+
+.tab-type{
+    display: flex;
+    border-bottom: 1px solid lightgray;
+}
+
+.tab-type div{
+    padding: 1em;
+    cursor: pointer;
+}
+
+#tab-underline{
+    position: absolute;
+    width: 60px;
+    height: 5px;
+    padding: 0;
+    left: 0px;
+    top: 52px;
+    background-color: rgb(177, 194, 230);
+}
+
+.task{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
