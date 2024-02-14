@@ -5,6 +5,11 @@ body{
     background-size: cover;
 }
 
+button{
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
 .container{
     min-width: 800px;
     min-height: 100vh;
@@ -45,4 +50,9 @@ body{
     display: flex;
     justify-content: space-between;
     padding: 1em;
+}
+
+.task-done{
+    color: rgb(160, 139, 209);
+    background-color: lavender;
 }
