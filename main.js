@@ -11,14 +11,30 @@ let btnAdd = document.getElementById("btn-add");
 let taskList = [];
 
 btnAdd.addEventListener("click", addTask)
+taskInput.addEventListener("focus", resetInput)
 
+btnAdd.disabled = true;
+
+// 할 일 추가
 function addTask(){
     let taskContent = taskInput.value
-    taskList.push(taskContent)
-    console.log(taskList);
-    render();
+
+    if(taskContent){
+        taskList.push(taskContent)
+        console.log(taskList);
+        render();      
+    }else{
+        btnAdd.disabled = true;
+    }
 }
 
+// task input창 리셋
+function resetInput(){
+    taskInput.value = "";
+    btnAdd.disabled = false;
+}
+
+// 할 일 아이템 생성
 function render(){
     let resultHTML = "";
     for (let i=0; i<taskList.length; i++){
