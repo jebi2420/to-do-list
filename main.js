@@ -49,7 +49,7 @@ function warning(){
     // warningWindow.document.body.innerHTML = warningContent;
 }
 
-// 할 일 아이템 생성
+// UI 생성
 function render(){
     let resultHTML = "";
     for (let i=0; i<taskList.length; i++){
@@ -91,12 +91,15 @@ function toggleComplete(id){
 }
 
 function deleteTask(id){
+    console.log("dele id:" + id)
     for(let i=0; i<taskList.length; i++){
         if(taskList[i].id == id){
-            taskList[i].pop();
+            taskList.splice(i,1);
             break; // 찾는 순간 나오게
         }
     }
+    // 값이 업데이트 되면 UI도 업데이트 해줘야 함
+    render()
 }
 
 function randomIDGenerate(){
