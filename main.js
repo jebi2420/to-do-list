@@ -43,10 +43,10 @@ function resetInput(){
 }
 
 function warning(){
-    // let warningOption = 'width=500, height=300'
-    // let warningWindow = window.open('', 'warning', warningOption);
-    // let warningContent = '<h1>내용을 입력해주세요</h1>'
-    // warningWindow.document.body.innerHTML = warningContent;
+    let warningOption = 'width=500, height=300'
+    let warningWindow = window.open('', 'warning', warningOption);
+    let warningContent = '<h1>내용을 입력해주세요</h1>'
+    warningWindow.document.body.innerHTML = warningContent;
 }
 
 // UI 생성
