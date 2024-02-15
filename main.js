@@ -13,7 +13,9 @@ let taskInput = document.getElementById("task-input");
 let btnAdd = document.getElementById("btn-add");
 let tabs = document.querySelectorAll(".tab-type div")// Node List로 여러 개 항목 갖고 오기
 let taskList = [];
-console.log(tabs);
+let mode = 'all';
+let filterList = [];
+
 btnAdd.addEventListener("click", addTask)
 taskInput.addEventListener("focus", resetInput)
 
@@ -56,25 +58,36 @@ function warning(){
 
 // UI 생성
 function render(){
+    // 1. 내가 선택한 탭에 따라서
+    // 2. 리스트를 달리 보여준다
+    // all : taskList
+    // ongoing, done : filterList
+    let list = [];
+    if(mode === "all"){
+        list = taskList;
+    }else if(mode === "ongoing" || mode === "done"){
+        list = filterList;
+    }
+    
     let resultHTML = "";
-    for (let i=0; i<taskList.length; i++){
-        if(taskList[i].isComplete == true){
+    for (let i=0; i<list.length; i++){
+        if(list[i].isComplete == true){
             resultHTML += `
             <div class="task task-done">
-                <div class="task-done">${taskList[i].taskContent}</div>
+                <div class="task-done">${list[i].taskContent}</div>
                 <div class="btns">
-                    <button onclick="toggleComplete('${taskList[i].id}')" id="check-btn"><i class="fa-solid fa-square-check"></i></button>
-                    <button onclick="deleteTask('${taskList[i].id}')" id="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                    <button onclick="toggleComplete('${list[i].id}')" id="check-btn"><i class="fa-solid fa-square-check"></i></button>
+                    <button onclick="deleteTask('${list[i].id}')" id="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
             </div>                  
             `
         }else{
             resultHTML += `
                 <div class="task">
-                    <div>${taskList[i].taskContent}</div>
+                    <div>${list[i].taskContent}</div>
                     <div class="btns">
-                        <button onclick="toggleComplete('${taskList[i].id}')" id="check-btn"><i class="fa-regular fa-square-check"></i></button>
-                        <button onclick="deleteTask('${taskList[i].id}')" id="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                        <button onclick="toggleComplete('${list[i].id}')" id="check-btn"><i class="fa-regular fa-square-check"></i></button>
+                        <button onclick="deleteTask('${list[i].id}')" id="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
                     </div>
                  </div>        
             `;
@@ -108,8 +121,8 @@ function deleteTask(id){
 }
 
 function filter(event){
-    let mode = event.target.id;// event가 일어난 target의 id를 들고 옴
-    let filterList = [];
+    mode = event.target.id;// event가 일어난 target의 id를 들고 옴
+    filterList = [];
     if(mode === "all"){
         // 전체 리스트를 보여준다
         render();
@@ -126,6 +139,13 @@ function filter(event){
     }else if(mode === "done"){
         // 끝나는 케이스
         // task.isComplete = true
+        for(let i=0; i<taskList.length; i++){
+            if(taskList[i].isComplete === true){
+                filterList.push(taskList[i])
+            }
+        }
+        render();
+        console.log("끝남", filterList)
     }
 }
 
