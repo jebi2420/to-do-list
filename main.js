@@ -11,10 +11,15 @@
 
 let taskInput = document.getElementById("task-input");
 let btnAdd = document.getElementById("btn-add");
+let tabs = document.querySelectorAll(".tab-type div")// Node List로 여러 개 항목 갖고 오기
 let taskList = [];
-
+console.log(tabs);
 btnAdd.addEventListener("click", addTask)
 taskInput.addEventListener("focus", resetInput)
+
+for(let i=1; i<tabs.length; i++){
+    tabs[i].addEventListener("click", function(event){filter(event)})
+}
 
 btnAdd.disabled = true;
 
@@ -100,6 +105,28 @@ function deleteTask(id){
     }
     // 값이 업데이트 되면 UI도 업데이트 해줘야 함
     render()
+}
+
+function filter(event){
+    let mode = event.target.id;// event가 일어난 target의 id를 들고 옴
+    let filterList = [];
+    if(mode === "all"){
+        // 전체 리스트를 보여준다
+        render();
+    }else if(mode === "ongoing"){
+        // 진행중인 아이템을 보여준다
+        // task.isComplete = false
+        for(let i=0; i<taskList.length; i++){
+            if(taskList[i].isComplete === false){
+                filterList.push(taskList[i])
+            }
+        }
+        render();
+        console.log("진행중", filterList)
+    }else if(mode === "done"){
+        // 끝나는 케이스
+        // task.isComplete = true
+    }
 }
 
 function randomIDGenerate(){
