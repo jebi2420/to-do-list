@@ -15,6 +15,16 @@ let tabs = document.querySelectorAll(".tab-type div")// Node List로 여러 개 
 let taskList = [];
 let mode = 'all';
 let filterList = [];
+let underLine = document.getElementById("tab-underline");
+
+tabs.forEach(tabs=>tabs.addEventListener("click", (e)=>indicator(e)))
+
+function indicator(e){
+    underLine.style.left = e.currentTarget.offsetLeft + "px";
+    underLine.style.width = e.currentTarget.offsetWidth + "px";
+    underLine.style.top = e.currentTarget.offsetTop 
+    + "px" + e.currentTarget.offsetHeight + "px";
+}
 
 btnAdd.addEventListener("click", addTask)
 taskInput.addEventListener("focus", resetInput)
