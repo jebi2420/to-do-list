@@ -27,6 +27,12 @@ function indicator(e){
 }
 
 btnAdd.addEventListener("click", addTask)
+taskInput.addEventListener("keydown", function(e){
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        addTask();
+        console.log("enter");
+    }
+})
 taskInput.addEventListener("focus", resetInput)
 
 for(let i=1; i<tabs.length; i++){
