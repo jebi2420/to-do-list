@@ -57,10 +57,25 @@ button{
     transition: 0.5s;
 }
 
+.input-area{
+    position: relative;
+}
+
 #task-input{
-    width: 300px;
+    width: 100%;
+    padding: 15px 18px;
+    padding-right: 40px;
     border: none;
-    border-bottom: 1px solid black;
+    background-color: rgb(232, 228, 241);
+}
+
+#btn-add{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border-radius: 50px;
+    color: white;
+    background-color: rgb(93, 65, 192);
 }
 
 .task{
