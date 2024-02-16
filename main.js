@@ -108,6 +108,12 @@ function toggleComplete(id){
     for(let i=0; i<taskList.length; i++){
         if(taskList[i].id == id){
             taskList[i].isComplete = !taskList[i].isComplete;
+
+            if(mode === "ongoing" && taskList[i].isComplete){
+                // 진행 중인 상태에서 끝난 항목으로 전환 시
+                // 해당 항목을 filterList에 추가, taskList에서 삭제
+                filterList.splice(i, 1);
+            }
             break; // 찾는 순간 나오게
         }
     }
