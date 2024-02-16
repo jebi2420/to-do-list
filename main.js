@@ -109,9 +109,9 @@ function toggleComplete(id){
         if(taskList[i].id == id){
             taskList[i].isComplete = !taskList[i].isComplete;
 
-            if(mode === "ongoing" && taskList[i].isComplete){
-                // 진행 중인 상태에서 끝난 항목으로 전환 시
-                // 해당 항목을 filterList에 추가, taskList에서 삭제
+            if(mode === "ongoing" && taskList[i].isComplete || mode === "done" && !taskList[i].isComplete){
+                // 진행중 탭 <-> 끝남 탭 전환 시
+                // 해당 항목을 해당 탭에서 filterList에 추가, taskList에서 삭제
                 filterList = filterList.filter(task => task.id !== id);
             }
             break; // 찾는 순간 나오게
