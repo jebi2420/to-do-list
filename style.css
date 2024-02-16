@@ -1,8 +1,17 @@
 body{
     margin: 0;
-    background-image: url(/asset/background.jpeg);
+    background: linear-gradient(to bottom, #cbbbeb, #5049b1);
+    /* background-image: url(/asset/background.jpeg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;*/
+} 
+
+main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button{
@@ -12,10 +21,11 @@ button{
 
 .container{
     min-width: 800px;
-    min-height: 100vh;
-    height: 100%;
-    border-top: 10px solid rgb(195, 179, 231);
-    border-bottom: 10px solid rgb(195, 179, 231);
+    min-height: 500px;
+    width: 1000px;
+    height: 700px;
+    padding: 25px 24px;
+    border-radius: 20px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -43,8 +53,12 @@ button{
     padding: 0;
     left: 0px;
     top: 52px;
-    background-color: rgb(177, 194, 230);
+    background-color: rgb(93, 65, 192);
     transition: 0.5s;
+}
+
+#task-input{
+    width: 300px;
 }
 
 .task{
