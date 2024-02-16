@@ -59,6 +59,8 @@ button{
 
 #task-input{
     width: 300px;
+    border: none;
+    border-bottom: 1px solid black;
 }
 
 .task{

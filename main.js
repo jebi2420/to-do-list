@@ -16,6 +16,7 @@ let taskList = [];
 let mode = 'all';
 let filterList = [];
 let underLine = document.getElementById("tab-underline");
+let todayDate = document.getElementById("today-date");
 
 tabs.forEach(tabs=>tabs.addEventListener("click", (e)=>indicator(e)))
 
@@ -26,6 +27,7 @@ function indicator(e){
     + "px" + e.currentTarget.offsetHeight + "px";
 }
 
+todayDate.textContent = CurrentDate();
 btnAdd.addEventListener("click", addTask)
 taskInput.addEventListener("keydown", function(e){
     if (e.key === 'Enter' || e.keyCode === 13) {
@@ -40,6 +42,24 @@ for(let i=1; i<tabs.length; i++){
 }
 
 btnAdd.disabled = true;
+
+// 현재 날짜를 원하는 포맷으로 변환
+function CurrentDate(){
+    const today = new Date();
+
+    const year = today.getFullYear();
+    const month = today.getMonth().toString().padStart(2, '0');
+    const day = today.getDate().toString().padStart(2, '0');
+    const dayOfWeek = getDayOfWeek(today.getDay());
+
+    return `${year}년 ${month}월 ${day}일 (${dayOfWeek})`;
+}
+
+// 숫자로 된 요일을 문자열로 변환
+function getDayOfWeek(dayIndex) {
+    const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+    return daysOfWeek[dayIndex];
+}
 
 // 할 일 추가
 function addTask(){
