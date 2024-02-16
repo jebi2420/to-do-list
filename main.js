@@ -119,7 +119,10 @@ function deleteTask(id){
     console.log("dele id:" + id)
     for(let i=0; i<taskList.length; i++){
         if(taskList[i].id == id){
+            // 해당 id를 가진 taskList[i]를 삭제
             taskList.splice(i,1);
+            // 진행 중, 끝남 일때도 delete 되게, 필터링 리스트 업데이트
+            filterList = filterList.filter(task => task.id !== id)
             break; // 찾는 순간 나오게
         }
     }
