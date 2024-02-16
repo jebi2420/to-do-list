@@ -81,9 +81,11 @@ function render(){
         if(list[i].isComplete == true){
             resultHTML += `
             <div class="task task-done">
-                <div class="task-done">${list[i].taskContent}</div>
-                <div class="btns">
+                <div class="left-side">
                     <button onclick="toggleComplete('${list[i].id}')" id="check-btn"><i class="fa-solid fa-square-check"></i></button>
+                    <div class="task-done">${list[i].taskContent}</div>
+                </div>
+                <div class="btns">
                     <button onclick="deleteTask('${list[i].id}')" id="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
             </div>                  
@@ -91,9 +93,11 @@ function render(){
         }else{
             resultHTML += `
                 <div class="task">
-                    <div>${list[i].taskContent}</div>
-                    <div class="btns">
+                    <div class="left-side">
                         <button onclick="toggleComplete('${list[i].id}')" id="check-btn"><i class="fa-regular fa-square-check"></i></button>
+                        <div>${list[i].taskContent}</div>
+                    </div>
+                    <div class="btns">
                         <button onclick="deleteTask('${list[i].id}')" id="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
                     </div>
                  </div>        
